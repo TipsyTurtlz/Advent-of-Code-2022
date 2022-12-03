@@ -1,0 +1,59 @@
+########### PART ONE #################
+import numpy as np
+data_list = []
+appearance_list = []
+char_sum, priority = 0, 0
+priority_list = []
+batch_list = []
+
+
+# import
+# AoC_03_input_data
+input_data = open('C:/Users/busch/OneDrive/Desktop/Advent-of-Code-2022/Day 3/AoC_03_input_data.txt','r')
+data = input_data.read()
+data_list = data.splitlines()
+
+for d in range(len(data_list)):
+    # split each string in two compartments
+    string_length = int(len(data_list[d]))
+    first_string = data_list[d][0:int(string_length/2)]
+    second_string = data_list[d][int(string_length/2):int(string_length)]
+    data_list[d] = [first_string,second_string]
+    # count number of occurences of each character of one string in the other string
+    for char in range(len(first_string)):
+        # save the character in case that it occurs in both strings and take his position in the ASCII table
+        if second_string[char] in first_string and second_string[char].islower():
+            appearance_list.append([second_string[char],ord(second_string[char]) - 96])
+            priority_list.append(appearance_list[-1][1])
+            break # continues in outer for-loop with the next string after one char in common was found
+        elif second_string[char] in first_string and second_string[char].isupper():
+            appearance_list.append([second_string[char],ord(second_string[char]) - 38])
+            priority_list.append(appearance_list[-1][1])
+            break
+      
+char_sum = np.sum(priority_list)
+
+print(char_sum)
+
+########### PART TWO #################
+input_data = open('C:/Users/busch/OneDrive/Desktop/Advent-of-Code-2022/Day 3/AoC_03_input_data.txt','r')
+data = input_data.read()
+data_list = data.splitlines()
+for data in range(0,len(data_list),3):
+    first_string = data_list[data]
+    second_string = data_list[data+1]
+    third_string = data_list[data+2]
+    batch_list = [first_string,second_string,third_string]
+    longest_string = max([first_string,second_string,third_string],key=len)
+    batch_list.remove(longest_string)
+    print(batch_list)
+    for character in longest_string:
+        if character in batch_list[0] and character in batch_list[1] and character.islower():
+            priority += ord(character) - 96
+            break
+        elif character in batch_list[0] and character in batch_list[1] and character.isupper():
+            priority += ord(character) - 38
+            break
+print(priority)
+
+
