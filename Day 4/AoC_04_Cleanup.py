@@ -2,8 +2,8 @@
 counter = 0
 
 # import
-input_data = open('C:/Users/Thies/Desktop/Programmieren/Advent-of-Code-2022/Day 4/AoC_04_input_data.txt','r')
-# input_data = open('C:/Users/busch/OneDrive/Desktop/Advent-of-Code-2022/Day 4/test.txt','r')
+input_data = open('Day 4/AoC_04_input_data.txt','r')
+# input_data = open('Day 4/test.txt','r')
 data = input_data.read()
 data_list = data.splitlines()   
 
