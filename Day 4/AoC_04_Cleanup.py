@@ -2,7 +2,7 @@
 counter = 0
 
 # import
-input_data = open('C:/Users/busch/OneDrive/Desktop/Advent-of-Code-2022/Day 4/AoC_04_input_data.txt','r')
+input_data = open('C:/Users/Thies/Desktop/Programmieren/Advent-of-Code-2022/Day 4/AoC_04_input_data.txt','r')
 # input_data = open('C:/Users/busch/OneDrive/Desktop/Advent-of-Code-2022/Day 4/test.txt','r')
 data = input_data.read()
 data_list = data.splitlines()   
@@ -21,12 +21,22 @@ for string in data_list:
     c = int(string[2])
     d = int(string[3])
     
-    if (a >= c and b <= d):
+    if a >= c and b <= d:
         counter += 1
         # print(f"{a}-{b} is in {c}-{d}")
     elif a <= c and b >= d:
         counter += 1
         # print(f"{c}-{d} is in {a}-{b}")
+        
+    ########### PART TWO #################    
+    elif a <= c and c <= b and d >= b:
+        counter += 1
+        # print(f"{a}-{b} is in {c}-{d}")
+    elif c <= a and a <= d and d <= b:
+        counter += 1
+        # print(f"{c}-{d} is in {a}-{b}")
    
     
 print(counter)
+
+
