@@ -54,22 +54,6 @@ for crates in stack:
 
 print(''.join([*solution]))
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## TIL:
 #  *: Repetetion Operator on List Items -> returns a list
 # zip() function for Parallel Iteration
